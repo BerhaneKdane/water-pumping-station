@@ -29,7 +29,7 @@ low-low / high-high level, leaks and E-stop.
 | Alarm management | P1–P3 priorities, ISA-18.2 states, acknowledge separated from reset, reset refused while cause active |
 | Software architecture | Reusable FBs (pump, valve, analog input, alternation, alarms), I/O mapping layer, Siemens-portable subset |
 | Simulation | In-PLC process model with time acceleration and fault injection for every failure the test plan covers |
-| Verification | 51 test cases and design reviews, every one of the 34 requirements covered, re-run on PLCSIM after migration |
+| Verification | 56 test cases and design reviews, every one of the 35 requirements covered, re-run on PLCSIM after migration |
 | Siemens | FBs/instance DBs in SCL, interlocks in LAD, WinCC HMI, S7-1500 hardware configuration |
 
 ## Architecture

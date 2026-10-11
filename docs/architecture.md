@@ -37,7 +37,7 @@ blocks run unchanged on real I/O.
 ```mermaid
 stateDiagram-v2
     [*] --> IDLE
-    IDLE --> CHECK: demand & permissives & pump available
+    IDLE --> CHECK: operator Start & demand & permissives & pump available
     CHECK --> OPEN_VALVE: OK
     CHECK --> IDLE: not OK
     OPEN_VALVE --> START_PUMP: XV101 confirmed open
@@ -45,12 +45,12 @@ stateDiagram-v2
     START_PUMP --> CHANGEOVER: duty failed to start
     RUNNING --> CHANGEOVER: duty equipment fault
     CHANGEOVER --> RUNNING: standby running
-    RUNNING --> STOP_PUMP: stop demand / permissive lost / process fault
+    RUNNING --> STOP_PUMP: demand met / operator Stop / permissive lost
     STOP_PUMP --> CLOSE_VALVE: pump stopped
     CLOSE_VALVE --> IDLE: XV101 closed
     OPEN_VALVE --> TRIPPED: travel timeout
     CHANGEOVER --> TRIPPED: standby failed
-    RUNNING --> TRIPPED: protective interlock
+    RUNNING --> TRIPPED: protective interlock / process trip
     TRIPPED --> IDLE: reset, causes cleared
 ```
 
@@ -59,8 +59,8 @@ stateDiagram-v2
 | Class | Applies in | Effect | Example |
 |---|---|---|---|
 | Protective interlock | All modes, not bypassable | Immediate stop, latched | Source low-low, leak, E-stop |
-| Process permissive | AUTO | Normal stop, auto restart | Remote permissive, reservoir level |
-| Process trip | AUTO / MANUAL while running | Pump trip, no takeover | Dry run, high discharge pressure |
+| Process permissive | AUTO | Stop at once, transfer resumes when restored | Remote permissive, reservoir level |
+| Process trip | AUTO / MANUAL while running | Pump trip, station trip latched, no takeover | Dry run, high discharge pressure |
 | Equipment fault | All modes | Pump fault, standby takeover in AUTO | Start failure, MCC trip |
 
 ## Platform mapping
