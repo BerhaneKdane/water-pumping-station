@@ -56,4 +56,4 @@ qualified personnel.
 
 ## Author
 
-Kidane Berhane — Instrumentation & Control Engineer (7 years).
+Berhane Kidane — Instrumentation & Control Engineer (7 years) · [GitHub](https://github.com/BerhaneKdane)
