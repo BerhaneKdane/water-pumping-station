@@ -11,14 +11,15 @@ Built in CODESYS (IEC 61131-3 Structured Text) and migrated to **Siemens S7-1500
 ## The process
 
 ```
-   TK100 source ──▶ P101 / P102 (duty / standby) ──▶ FT101 · PT101 ──▶ FCV101 ──▶ XV101 ──▶ TK200 reservoir ──▶ demand
-   LT100, LSLL100                                                                          LT200, LSHH200
+   supply ──▶ XV100 ──▶ TK100 source ──▶ P101 / P102 (duty / standby) ──▶ FT101 · PT101 ──▶ FCV101 ──▶ XV101 ──▶ TK200 reservoir ──▶ consumers
+                        LT100, LSLL100, LSHH100                                                               LT200, LSHH200
 ```
 
 Two fixed-speed pumps transfer water on reservoir demand. The PLC runs the start/stop sequence with feedback
 confirmation at each step, alternates duty, hands over to the standby pump on equipment faults (but not on
 process faults, where the standby would fail the same way), and protects the station against dry run, dead-head,
-low-low / high-high level, leaks and E-stop.
+low-low / high-high level, leaks and E-stop. An inlet valve refills the source tank on level, with an
+independent high-high switch against overflow.
 
 ## What it demonstrates
 
@@ -29,7 +30,7 @@ low-low / high-high level, leaks and E-stop.
 | Alarm management | P1–P3 priorities, ISA-18.2 states, acknowledge separated from reset, reset refused while cause active |
 | Software architecture | Reusable FBs (pump, valve, analog input, alternation, alarms), I/O mapping layer, Siemens-portable subset |
 | Simulation | In-PLC process model with time acceleration and fault injection for every failure the test plan covers |
-| Verification | 58 test cases and design reviews, every one of the 35 requirements covered, re-run on PLCSIM after migration |
+| Verification | 63 test cases and design reviews, every one of the 38 requirements covered, re-run on PLCSIM after migration |
 | Siemens | FBs/instance DBs in SCL, interlocks in LAD, WinCC HMI, S7-1500 hardware configuration |
 
 ## Architecture
