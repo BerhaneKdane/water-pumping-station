@@ -11,11 +11,11 @@ Built in CODESYS (IEC 61131-3 Structured Text) and migrated to **Siemens S7-1500
 ## The process
 
 ```
-   supply ──▶ XV100 ──▶ TK100 source ──▶ P101 / P102 (duty / standby) ──▶ FT101 · PT101 ──▶ FCV101 ──▶ XV101 ──▶ TK200 reservoir ──▶ consumers
+   supply ──▶ XV100 ──▶ TK100 source ──▶ P101 / P102 (VFDs, duty / standby) ──▶ FT101 · PT101 ──▶ XV101 ──▶ TK200 reservoir ──▶ consumers
                         LT100, LSLL100, LSHH100                                                               LT200, LSHH200
 ```
 
-Two fixed-speed pumps transfer water on reservoir demand. The PLC runs the start/stop sequence with feedback
+Two pumps on variable speed drives transfer water on reservoir demand. The PLC runs the start/stop sequence with feedback
 confirmation at each step, alternates duty, hands over to the standby pump on equipment faults (but not on
 process faults, where the standby would fail the same way), and protects the station against dry run, dead-head,
 low-low / high-high level, leaks and E-stop. An inlet valve refills the source tank on level, with an
@@ -30,8 +30,9 @@ independent high-high switch against overflow.
 | Alarm management | P1–P3 priorities, ISA-18.2 states, acknowledge separated from reset, reset refused while cause active |
 | Software architecture | Reusable FBs (pump, valve, analog input, alternation, alarms), I/O mapping layer, Siemens-portable subset |
 | Simulation | In-PLC process model with time acceleration and fault injection for every failure the test plan covers |
-| Verification | 63 test cases and design reviews, every one of the 38 requirements covered, re-run on PLCSIM after migration |
-| Siemens | FBs/instance DBs in SCL, interlocks in LAD, WinCC HMI, S7-1500 hardware configuration |
+| Drives | VFD speed control with ramps and speed supervision; flow control on pump speed (about 37 % less hydraulic power at 25 m³/h than throttling) |
+| Verification | 64 test cases and design reviews, every one of the 39 requirements covered, re-run on PLCSIM after migration |
+| Siemens | FBs/instance DBs in SCL, interlocks in LAD, WinCC HMI, S7-1500 hardware configuration, SINAMICS G120 drives |
 
 ## Architecture
 
