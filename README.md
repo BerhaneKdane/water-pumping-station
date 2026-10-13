@@ -31,7 +31,7 @@ independent high-high switch against overflow.
 | Software architecture | Reusable FBs (pump, valve, analog input, alternation, alarms), I/O mapping layer, Siemens-portable subset |
 | Simulation | In-PLC process model with time acceleration and fault injection for every failure the test plan covers |
 | Drives | VFD speed control with ramps and speed supervision; flow control on pump speed (about 37 % less hydraulic power at 25 m³/h than throttling) |
-| Verification | 64 test cases and design reviews, every one of the 39 requirements covered, re-run on PLCSIM after migration |
+| Verification | 66 test cases and design reviews, every one of the 39 requirements covered, re-run on PLCSIM after migration |
 | Siemens | FBs/instance DBs in SCL, interlocks in LAD, WinCC HMI, S7-1500 hardware configuration, SINAMICS G120 drives |
 
 ## Architecture
