@@ -4,7 +4,7 @@ A simulated duty/standby water transfer station, engineered the way a real one w
 first, fail-safe I/O, interlocks, alarm management to ISA-18.2, test cases traced to requirements — then code.
 Built in CODESYS (IEC 61131-3 Structured Text) and migrated to **Siemens S7-1500 / TIA Portal / WinCC**.
 
-> **Status:** 🟡 Phase A — Walking skeleton · Control philosophy rev A complete
+> **Status:** 🟡 Phase A — Walking skeleton · Design signed off (rev 0)
 > This repository shows the outcome: design, architecture, screenshots, test results. The PLC source is kept
 > in a private engineering repository.
 
