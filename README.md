@@ -36,7 +36,8 @@ independent high-high switch against overflow.
 
 ## Architecture
 
-See [docs/architecture.md](docs/architecture.md).
+See [docs/architecture.md](docs/architecture.md). Why each design decision was taken:
+[docs/design-rationale.md](docs/design-rationale.md).
 
 ## Roadmap
 
