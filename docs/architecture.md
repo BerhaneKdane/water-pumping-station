@@ -60,7 +60,7 @@ stateDiagram-v2
 |---|---|---|---|
 | Protective interlock | All modes, not bypassable | Immediate stop, latched | Source low-low, leak, E-stop |
 | Process permissive | AUTO | Stop at once, transfer resumes when restored | Remote permissive, reservoir level |
-| Process trip | AUTO / MANUAL while running | Pump trip, station trip latched, no takeover | Dry run, high discharge pressure |
+| Process trip | AUTO / MANUAL while running | Pump trip, station trip latched, no takeover (low flow with good suction: one 10 s standby attempt first) | Dry run, high discharge pressure |
 | Equipment fault | All modes | Pump fault, standby takeover in AUTO | Start failure, MCC trip |
 
 ## Platform mapping
